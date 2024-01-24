@@ -44,6 +44,7 @@
                             'label' => Yii::t('app', 'Users'),
                             'icon' => 'user',
                             //'badge' => '<span class="right badge badge-info">2</span>',
+                            'active' => true, // Set this to true to make it open by default
                             'items' => [
                                 ['label' => Yii::t('app', 'Staffs'), 'url' => ['/staffs'], 'iconStyle' => 'far', 'icon' => 'user'],
                                 ['label' => Yii::t('app', 'Clients'), 'url' => ['/clients'], 'iconStyle' => 'far', 'icon' => 'user'],
@@ -53,6 +54,7 @@
                             'label' => Yii::t('app', 'Services'),
                             'icon' => 'globe',
                             //'badge' => '<span class="right badge badge-info">2</span>',
+                            'active' => true, // Set this to true to make it open by default
                             'items' => [
                                 ['label' => Yii::t('app', 'Services'), 'url' => ['/services'], 'iconStyle' => 'far', 'icon' => ''],
                                 ['label' => Yii::t('app', 'Customers Orders'), 'url' => ['/orders'], 'iconStyle' => 'far', 'icon' => ''],

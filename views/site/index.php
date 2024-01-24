@@ -21,7 +21,7 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
             <div class="small-box bg-info">
                 <div class="inner">
                     <h3>33</h3>
-                    <p><?= Yii::t('app', 'Registred Client') ?></p>
+                    <p><?= Yii::t('app', 'Registered Client') ?></p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-bag"></i>
@@ -31,25 +31,10 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
 
         <div class="col-lg-3 col-6">
 
-            <div class="small-box bg-success">
-                <div class="inner">
-                    <div class="inner">
-                        <h3><?= 33 ?></h3>
-                        <p><?= Yii::t('app', 'Vendors count') ?></p>
-                    </div>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-stats-bars"></i>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-6">
-
             <div class="small-box bg-warning">
                 <div class="inner">
                     <h3><?= 33 ?></h3>
-                    <p><?= Yii::t('app', 'Branches Count') ?></p>
+                    <p><?= Yii::t('app', 'Services') ?></p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-person-add"></i>
@@ -62,7 +47,19 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
             <div class="small-box bg-danger">
                 <div class="inner">
                     <h3><?= 33 ?></h3>
-                    <p><?= Yii::t('app', 'Registered Client') ?></p>
+                    <p><?= Yii::t('app', 'Open Orders') ?></p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+
+            <div class="small-box bg-success">
+                <div class="inner">
+                    <h3><?= 33 ?></h3>
+                    <p><?= Yii::t('app', 'Total Orders') ?></p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-pie-graph"></i>
