@@ -11,14 +11,14 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-                <img src="<?=$assetDir?>/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-            </div>
-            <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
-            </div>
-        </div>
+<!--        <div class="user-panel mt-3 pb-3 mb-3 d-flex">-->
+<!--            <div class="image">-->
+<!--                <img src="--><?php //=$assetDir?><!--/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">-->
+<!--            </div>-->
+<!--            <div class="info">-->
+<!--                <a href="#" class="d-block">Alexander Pierce</a>-->
+<!--            </div>-->
+<!--        </div>-->
 
         <!-- SidebarSearch Form -->
         <!-- href be escaped -->
@@ -37,28 +37,31 @@
         <nav class="mt-2">
             <?php
 
-            echo \hail812\adminlte\widgets\Menu::widget([
-                'items' => [
-                    [
-                        'label' => Yii::t('app','Users'),
-                        'icon' => 'user',
-                        //'badge' => '<span class="right badge badge-info">2</span>',
-                        'items' => [
-                            ['label' =>Yii::t('app',  'Admins list'), 'url' => ['/admin-accounts'], 'iconStyle' => 'far', 'icon' => ''],
-                            ['label' => Yii::t('app','Create admin'), 'url' => ['/useadmin-accounts/create'], 'iconStyle' => 'far', 'icon' => ''],
-                        ]
+            try {
+                echo Menu::widget([
+                    'items' => [
+                        [
+                            'label' => Yii::t('app', 'Users'),
+                            'icon' => 'user',
+                            //'badge' => '<span class="right badge badge-info">2</span>',
+                            'items' => [
+                                ['label' => Yii::t('app', 'Staffs'), 'url' => ['/staffs'], 'iconStyle' => 'far', 'icon' => 'user'],
+                                ['label' => Yii::t('app', 'Clients'), 'url' => ['/clients'], 'iconStyle' => 'far', 'icon' => 'user'],
+                            ]
+                        ],
+                        [
+                            'label' => Yii::t('app', 'Services'),
+                            'icon' => 'globe',
+                            //'badge' => '<span class="right badge badge-info">2</span>',
+                            'items' => [
+                                ['label' => Yii::t('app', 'Services'), 'url' => ['/services'], 'iconStyle' => 'far', 'icon' => ''],
+                                ['label' => Yii::t('app', 'Customers Orders'), 'url' => ['/orders'], 'iconStyle' => 'far', 'icon' => ''],
+                            ]
+                        ],
                     ],
-                    [
-                        'label' => Yii::t('app','World names'),
-                        'icon' => 'globe',
-                        //'badge' => '<span class="right badge badge-info">2</span>',
-                        'items' => [
-                            ['label' => Yii::t('app','Countries list'), 'url' => ['/countries'], 'iconStyle' => 'far', 'icon' => ''],
-                            ['label' => Yii::t('app','Cities list'), 'url' => ['/cities'], 'iconStyle' => 'far', 'icon' => ''],
-                        ]
-                    ],
-                ],
-            ]);
+                ]);
+            } catch (Throwable $e) {
+            }
             ?>
 
 
