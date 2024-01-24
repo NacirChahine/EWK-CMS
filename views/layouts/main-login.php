@@ -14,7 +14,7 @@ $this->registerCssFile('https://code.ionicframework.com/ionicons/2.0.1/css/ionic
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title><?php echo Yii::t('app', 'Mauidy CMS - Login'); ?></title>
+    <title><?php echo Yii::t('app', 'Ebreh W Kheit CMS - Login'); ?></title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php $this->registerCsrfMetaTags() ?>
@@ -24,7 +24,7 @@ $this->registerCssFile('https://code.ionicframework.com/ionicons/2.0.1/css/ionic
 <?php  $this->beginBody() ?>
 <div class="login-box">
     <div class="login-logo">
-    <?php echo Yii::t('app', 'Mauidy CMS');?> 
+    <?php echo Yii::t('app', 'Ebreh W Kheit CMS');?>
     </div>
     <!-- /.login-logo -->
 

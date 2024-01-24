@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
-        <img src="/images/logo.jpg" alt="Mauidy Logo" class="brand-image img-circle elevation-3" style="opacity: .8; filter: grayscale(100%);">
+<!--        <img src="/images/logo.jpg" alt="Ebreh W Kheit Logo" class="brand-image img-circle elevation-3" style="opacity: .8; filter: grayscale(100%);">-->
         <span class="brand-text font-weight-light">
         <?php use hail812\adminlte\widgets\Menu;
             echo Yii::t('app', 'CMS');?>
