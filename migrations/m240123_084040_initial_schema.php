@@ -13,12 +13,12 @@ class m240123_084040_initial_schema extends Migration
     public function safeUp()
     {
         // Create cms_users table
-        $this->createTable('cms_users', [
-            'id' => $this->primaryKey(),
-            'username' => $this->string()->notNull(),
-            'password' => $this->string()->notNull(),
-            // Add other fields as needed
-        ]);
+//        $this->createTable('cms_users', [
+//            'id' => $this->primaryKey(),
+//            'username' => $this->string()->notNull(),
+//            'password' => $this->string()->notNull(),
+//            // Add other fields as needed
+//        ]);
 
         // Create Staffs table
         $this->createTable('Staffs', [
@@ -68,7 +68,7 @@ class m240123_084040_initial_schema extends Migration
     public function safeDown()
     {
         // Drop tables if needed
-        $this->dropTable('cms_users');
+//        $this->dropTable('cms_users');
         $this->dropTable('Staffs');
         $this->dropTable('Clients');
         $this->dropTable('Orders');
