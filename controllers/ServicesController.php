@@ -1,10 +1,9 @@
 <?php
 
-namespace app\Controllers;
+namespace app\controllers;
 
 use app\models\Services;
 use app\models\ServicesSearch;
-use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
