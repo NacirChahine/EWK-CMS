@@ -32,10 +32,9 @@ class Orders extends \yii\db\ActiveRecord
     {
         return [
             [['services_id', 'client_id', 'total_price'], 'required'],
-            [['services_id', 'description'], 'string'],
             [['client_id'], 'integer'],
             [['total_price'], 'number'],
-            [['received_date', 'delivery_date'], 'safe'],
+            [['received_date', 'delivery_date', 'services_id', 'description'], 'safe'],
         ];
     }
 
@@ -46,8 +45,8 @@ class Orders extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'services_id' => Yii::t('app', 'Services ID'),
-            'client_id' => Yii::t('app', 'Client ID'),
+            'services_id' => Yii::t('app', 'Services'),
+            'client_id' => Yii::t('app', 'Client'),
             'description' => Yii::t('app', 'Description'),
             'total_price' => Yii::t('app', 'Total Price'),
             'received_date' => Yii::t('app', 'Received Date'),

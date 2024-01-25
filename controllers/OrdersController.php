@@ -68,9 +68,16 @@ class OrdersController extends Controller
     public function actionCreate()
     {
         $model = new Orders();
-
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
+            $postData = $this->request->post();
+
+            // Ensure services_id is an array
+            $servicesId = $postData['Orders']['services_id'] ?? [];
+
+            // Implode the array into a comma-separated string
+            $postData['Orders']['services_id'] = implode(',', $servicesId);
+
+            if ($model->load($postData) && $model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {

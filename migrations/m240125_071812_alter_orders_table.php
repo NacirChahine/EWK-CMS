@@ -14,7 +14,7 @@ class m240125_071812_alter_orders_table extends Migration
      */
     public function safeUp()
     {
-        $this->alterColumn('{{%orders}}', 'services_id', $this->json()->notNull());
+        $this->alterColumn('{{%orders}}', 'services_id', $this->text());
     }
 
     /**
