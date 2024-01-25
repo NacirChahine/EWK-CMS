@@ -1,6 +1,7 @@
 <?php
 
 use app\models\Orders;
+use app\models\OrdersSearch;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -62,6 +63,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'raw', // Allows rendering HTML
                 'filter' => \yii\helpers\ArrayHelper::map(\app\models\Staffs::find()->all(), 'id', 'name'),
             ],
+            [
+                'attribute' => 'status',
+                'filter' => Html::activeDropDownList(
+                    $searchModel,
+                    'status',
+                    ['open' => 'Open', 'close' => 'Closed'],
+                    ['class' => 'form-control', 'prompt' => Yii::t('app', 'All')]
+                ),
+            ],
+
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Orders $model, $key, $index, $column) {

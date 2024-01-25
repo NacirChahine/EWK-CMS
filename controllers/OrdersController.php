@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Orders;
 use app\models\OrdersSearch;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -144,5 +145,18 @@ class OrdersController extends Controller
         }
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+    }
+
+    public function actionToggleStatus($id)
+    {
+        $model = $this->findModel($id);
+
+        if ($model->toggleStatus()) {
+            Yii::$app->session->setFlash('success', Yii::t('app', 'Order status has been toggled successfully.'));
+        } else {
+            Yii::$app->session->setFlash('error', Yii::t('app', 'Failed to toggle order status.'));
+        }
+
+        return $this->redirect(['view', 'id' => $id]);
     }
 }

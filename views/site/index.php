@@ -10,7 +10,7 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
 // Fetch counts from the database
 $clientCount = Clients::find()->count();
 $serviceCount = Services::find()->count();
-$openOrderCount = Orders::find()->count();
+$openOrderCount = Orders::find()->andWhere(['status' => 'open'])->count();
 $totalOrderCount = Orders::find()->count();
 
 ?>

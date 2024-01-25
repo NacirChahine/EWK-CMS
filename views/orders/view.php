@@ -24,6 +24,18 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+        <?php
+        // Toggle status button
+        $toggleButtonText = ($model->status === 'open') ? 'Close Order' : 'Reopen Order';
+        echo Html::a($toggleButtonText, ['toggle-status', 'id' => $model->id], [
+            'class' => 'btn btn-warning',
+            'data' => [
+                'confirm' => Yii::t('app', 'Are you sure you want to change the order status?'),
+                'method' => 'post',
+            ],
+        ]);
+        ?>
+
     </p>
 
     <?= DetailView::widget([
@@ -44,6 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'total_price',
             'received_date',
             'delivery_date',
+            'status',
             [
                 'attribute' => 'staff_id',
                 'value' => $model->staff ? $model->staff->name : null,

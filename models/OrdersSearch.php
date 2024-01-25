@@ -18,7 +18,7 @@ class OrdersSearch extends Orders
     {
         return [
             [['id', 'client_id', 'staff_id'], 'integer'],
-            [['services_id', 'description', 'received_date', 'delivery_date'], 'safe'],
+            [['services_id', 'description', 'received_date', 'delivery_date', 'status'], 'safe'],
             [['total_price'], 'number'],
         ];
     }
@@ -76,6 +76,7 @@ class OrdersSearch extends Orders
             'received_date' => $this->received_date,
             'delivery_date' => $this->delivery_date,
             'staff_id' => $this->staff_id,
+            'status' => $this->status,
         ]);
 
         $query->andFilterWhere(['like', 'services_id', $this->services_id])

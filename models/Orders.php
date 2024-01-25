@@ -13,6 +13,7 @@ use yii\helpers\Html;
  * @property string|null $services_id
  * @property int $client_id
  * @property string|null $description
+ * @property string $status
  * @property float $total_price
  * @property string|null $received_date
  * @property string|null $delivery_date
@@ -40,7 +41,7 @@ class Orders extends \yii\db\ActiveRecord
             [['services_id', 'client_id', 'total_price'], 'required'],
             [['client_id'], 'integer'],
             [['total_price'], 'number'],
-            [['received_date', 'delivery_date', 'services_id', 'description'], 'safe'],
+            [['received_date', 'delivery_date', 'services_id', 'description', 'status'], 'safe'],
         ];
     }
 
@@ -57,7 +58,8 @@ class Orders extends \yii\db\ActiveRecord
             'total_price' => Yii::t('app', 'Total Price'),
             'received_date' => Yii::t('app', 'Received Date'),
             'delivery_date' => Yii::t('app', 'Delivery Date'),
-            'staff_id' => Yii::t('app', 'Staff ID'),
+            'staff_id' => Yii::t('app', 'Staff'),
+            'status' => Yii::t('app', 'Status'),
         ];
     }
 
@@ -96,6 +98,12 @@ class Orders extends \yii\db\ActiveRecord
     public function getClientName(): string
     {
         return Html::a($this->client->name, ['clients/view', 'id' => $this->client_id]);
+    }
+
+    public function toggleStatus()
+    {
+        $this->status = ($this->status === 'open') ? 'close' : 'open';
+        return $this->save(false);
     }
 
 }
