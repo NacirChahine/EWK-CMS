@@ -34,7 +34,7 @@ use yii\web\JsExpression; // Import JsExpression for using JavaScript in ActiveF
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'total_price')->textInput(['maxlength' => true, 'readonly' => true]) ?>
+    <?= $form->field($model, 'total_price')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'received_date')->textInput(['type' => 'date', 'value' => date('Y-m-d')]) ?>
 
