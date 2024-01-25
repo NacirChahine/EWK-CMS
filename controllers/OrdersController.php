@@ -40,6 +40,13 @@ class OrdersController extends Controller
     {
         $searchModel = new OrdersSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
+        // Apply the default sorting order if no specific sorting is requested
+        $dataProvider->sort->defaultOrder = ['id' => SORT_DESC];
+        // specific sorting
+//        $dataProvider->sort->attributes['client'] = [
+//            'asc' => ['client_id' => SORT_ASC],
+//            'desc' => ['client_id' => SORT_DESC],
+//        ];
 
         return $this->render('index', [
             'searchModel' => $searchModel,

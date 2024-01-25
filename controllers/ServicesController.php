@@ -40,6 +40,8 @@ class ServicesController extends Controller
     {
         $searchModel = new ServicesSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
+        // Apply the default sorting order if no specific sorting is requested
+        $dataProvider->sort->defaultOrder = ['id' => SORT_DESC];
 
         return $this->render('index', [
             'searchModel' => $searchModel,

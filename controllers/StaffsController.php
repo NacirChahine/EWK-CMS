@@ -41,6 +41,8 @@ class StaffsController extends Controller
     {
         $searchModel = new StaffsSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
+        // Apply the default sorting order if no specific sorting is requested
+        $dataProvider->sort->defaultOrder = ['id' => SORT_DESC];
 
         return $this->render('index', [
             'searchModel' => $searchModel,
