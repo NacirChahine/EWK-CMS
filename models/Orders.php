@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\Html;
 
 /**
  * This is the model class for table "{{%orders}}".
@@ -54,15 +55,31 @@ class Orders extends \yii\db\ActiveRecord
         ];
     }
 
-    public function getServices()
+    public function getServices(): array
     {
         $serviceIds = explode(',', $this->services_id);
         return Services::find()->where(['id' => $serviceIds])->all();
     }
 
-    public function getClient()
+    public function getClient(): \yii\db\ActiveQuery
     {
         return $this->hasOne(Clients::className(), ['id' => 'client_id']);
+    }
+
+    // for the view page
+    public function getServiceNames(): string
+    {
+        $services = $this->getServices();
+        $serviceNames = [];
+        foreach ($services as $service) {
+            $serviceNames[] = Html::a($service->name, ['services/view', 'id' => $service->id]);
+        }
+        return implode(', ', $serviceNames);
+    }
+
+    public function getClientName(): string
+    {
+        return Html::a($this->client->name, ['clients/view', 'id' => $this->client_id]);
     }
 
 }

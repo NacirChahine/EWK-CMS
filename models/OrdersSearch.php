@@ -58,6 +58,16 @@ class OrdersSearch extends Orders
             return $dataProvider;
         }
 
+//        $dataProvider->sort->attributes['services_id'] = [
+//            'asc' => [Services::tableName() . '.name' => SORT_ASC],
+//            'desc' => [Services::tableName() . '.name' => SORT_DESC],
+//        ];
+
+        $dataProvider->sort->attributes['client_id'] = [
+            'asc' => [Clients::tableName() . '.name' => SORT_ASC],
+            'desc' => [Clients::tableName() . '.name' => SORT_DESC],
+        ];
+
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
