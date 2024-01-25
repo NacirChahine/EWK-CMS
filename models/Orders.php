@@ -8,7 +8,7 @@ use Yii;
  * This is the model class for table "{{%orders}}".
  *
  * @property int $id
- * @property int $services_id
+ * @property string $services_id
  * @property int $client_id
  * @property string|null $description
  * @property float $total_price
@@ -32,8 +32,8 @@ class Orders extends \yii\db\ActiveRecord
     {
         return [
             [['services_id', 'client_id', 'total_price'], 'required'],
-            [['services_id', 'client_id'], 'integer'],
-            [['description'], 'string'],
+            [['services_id', 'description'], 'string'],
+            [['client_id'], 'integer'],
             [['total_price'], 'number'],
             [['received_date', 'delivery_date'], 'safe'],
         ];
