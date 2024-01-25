@@ -14,10 +14,10 @@ class OrdersSearch extends Orders
     /**
      * {@inheritdoc}
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            [['id', 'client_id'], 'integer'],
+            [['id', 'client_id', 'staff_id'], 'integer'],
             [['services_id', 'description', 'received_date', 'delivery_date'], 'safe'],
             [['total_price'], 'number'],
         ];
@@ -75,6 +75,7 @@ class OrdersSearch extends Orders
             'total_price' => $this->total_price,
             'received_date' => $this->received_date,
             'delivery_date' => $this->delivery_date,
+            'staff_id' => $this->staff_id,
         ]);
 
         $query->andFilterWhere(['like', 'services_id', $this->services_id])

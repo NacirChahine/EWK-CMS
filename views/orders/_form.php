@@ -40,6 +40,11 @@ use yii\web\JsExpression; // Import JsExpression for using JavaScript in ActiveF
 
     <?= $form->field($model, 'delivery_date')->textInput(['type' => 'date']) ?>
 
+    <?= $form->field($model, 'staff_id')->dropDownList(
+        \yii\helpers\ArrayHelper::map(\app\models\Staffs::find()->all(), 'id', 'name'),
+        ['prompt' => Yii::t('app', 'Select a staff')]
+    ) ?>
+
     <?php
     // JavaScript to fetch and calculate total_price based on selected services
     $servicePrices = json_encode(\yii\helpers\ArrayHelper::map(\app\models\Services::find()->all(), 'id', 'price'));
