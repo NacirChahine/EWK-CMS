@@ -34,6 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'phone',
             'more_info:ntext',
+            'percentage',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Staffs $model, $key, $index, $column) {

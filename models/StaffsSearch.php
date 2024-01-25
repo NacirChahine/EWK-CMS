@@ -19,6 +19,7 @@ class StaffsSearch extends Staffs
         return [
             [['id'], 'integer'],
             [['name', 'phone', 'more_info'], 'safe'],
+            [['percentage'], 'number'],
         ];
     }
 
@@ -59,6 +60,7 @@ class StaffsSearch extends Staffs
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'percentage' => $this->percentage,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
