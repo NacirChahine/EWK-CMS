@@ -44,6 +44,7 @@ class OrdersSearch extends Orders
         $query = Orders::find();
 
         // add conditions that should always apply here
+        $query->joinWith(['client']); // Include the related tables
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

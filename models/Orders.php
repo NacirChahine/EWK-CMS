@@ -53,4 +53,16 @@ class Orders extends \yii\db\ActiveRecord
             'delivery_date' => Yii::t('app', 'Delivery Date'),
         ];
     }
+
+    public function getServices()
+    {
+        $serviceIds = explode(',', $this->services_id);
+        return Services::find()->where(['id' => $serviceIds])->all();
+    }
+
+    public function getClient()
+    {
+        return $this->hasOne(Clients::className(), ['id' => 'client_id']);
+    }
+
 }

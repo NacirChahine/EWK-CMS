@@ -31,8 +31,25 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'services_id:ntext',
-            'client_id',
+            [
+                'attribute' => 'services_id',
+                'value' => function ($model) {
+                    $services = $model->getServices();
+                    $serviceLinks = [];
+                    foreach ($services as $service) {
+                        $serviceLinks[] = Html::a($service->name, ['services/view', 'id' => $service->id]);
+                    }
+                    return implode(', ', $serviceLinks);
+                },
+                'format' => 'raw',
+            ],
+            [
+                'attribute' => 'client_id',
+                'value' => function ($model) {
+                    return Html::a($model->client->name, ['clients/view', 'id' => $model->client_id]);
+                },
+                'format' => 'raw',
+            ],
             'description:ntext',
             'total_price',
             //'received_date',
@@ -41,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Orders $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'id' => $model->id]);
-                 }
+                }
             ],
         ],
     ]); ?>
