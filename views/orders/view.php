@@ -44,6 +44,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'total_price',
             'received_date',
             'delivery_date',
+            [
+                'attribute' => 'staff_id',
+                'value' => $model->staff ? $model->staff->name : null,
+            ],
         ],
     ]) ?>
 

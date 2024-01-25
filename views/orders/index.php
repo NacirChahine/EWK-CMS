@@ -52,8 +52,16 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'description:ntext',
             'total_price',
-            //'received_date',
-            //'delivery_date',
+            'received_date',
+            'delivery_date',
+            [
+                'attribute' => 'staff_id',
+                'value' => function ($model) {
+                    return $model->staff ? Html::a($model->staff->name, ['staffs/view', 'id' => $model->staff->id]) : null;
+                },
+                'format' => 'raw', // Allows rendering HTML
+                'filter' => \yii\helpers\ArrayHelper::map(\app\models\Staffs::find()->all(), 'id', 'name'),
+            ],
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Orders $model, $key, $index, $column) {
